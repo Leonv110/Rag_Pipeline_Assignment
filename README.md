@@ -1,2 +1,14 @@
 # Rag_Pipeline_Assignment
 Rag pipeline design and Proof of Concept
+
+Multi-Source RAG Pipeline POCThis project implements a Retrieval-Augmented Generation (RAG) pipeline designed to aggregate information from four heterogeneous data sources: PostgreSQL, MongoDB, REST API, and Redis. It demonstrates intelligent query routing and caching for cost optimization.🚀 DeliverablesThis repository contains the full POC code (pipeline.py, router.py, data_connectors.py) and the required documentation files.🛠️ Setup Instructions1. Prerequisites (External Services)To run this POC, the following services must be accessible (we used free cloud tiers for reliability):LLM Service: Ollama must be installed and running locally.PostgreSQL: An active instance (e.g., Neon).MongoDB: An active cluster (e.g., Atlas).Redis: An active instance (e.g., Redis Cloud).REST API: Public access is required (REST Countries API).2. Dependencies and InstallationClone the Repository/Unzip the folder.Create requirements.txt in the root directory:psycopg2-binary
+pymongo
+redis
+requests
+python-dotenv
+ollama
+Install Python dependencies:pip install -r requirements.txt
+3. Environment Variables (.env)You MUST create a file named .env in the root directory and populate it with your actual credentials.VariablePurposeNotesPOSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_HOST, etc.PostgreSQL connection detailsMust point to your Neon instance.MONGO_URI, MONGO_DB_NAMEMongoDB Atlas full connection string.Ensure your IP is whitelisted on Atlas.REDIS_HOST, REDIS_PORT, REDIS_PASSWORDRedis Cloud connection details.Used exclusively for caching.OLLAMA_API_URLOllama Local EndpointShould be http://localhost:11434.OLLAMA_MODEL_NAMELLM Model NameDefault is llama3.🏃 How to Run the POCThe demonstration is executed by running the pipeline.py script. This automatically runs all core requirements (Routing, Retrieval, Generation, Caching) sequentially.Step 1: Initialize the Data (Run Once)This script populates PostgreSQL (2 tables, 1000+ records) and MongoDB (1 collection, 1000 documents).python insert_sample_data.py
+Step 2: Start the LLM Server (Dedicated Window)Open a separate terminal window and start the Ollama server:ollama serve
+Step 3: Run the Pipeline and Capture OutputOpen a third terminal window in the project directory. The recommended method is to capture the output directly to a log file (POC_Demo_Output.txt) for submission:python pipeline.py > POC_Demo_Output.txt
+This script will run four crucial test cases:Single Source Query: Retrieves data from PostgreSQL only.Multi-Source Query: Routes to PostgreSQL and MongoDB.API Integration: Queries the REST API.Caching Test: Repeats the API query, resulting in a CACHE HIT (proving cost optimization).The contents of POC_Demo_Output.txt serve as the required Sample Output for the assignment.
