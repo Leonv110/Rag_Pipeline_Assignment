@@ -1,0 +1,7 @@
+psycopg2-binary  # PostgreSQL driver
+pymongo          # MongoDB driver
+redis            # Redis driver
+requests         # General HTTP client for REST API
+python-dotenv    # To load credentials from .env
+tqdm             # Progress bar (optional, but good practice)
+ollama
