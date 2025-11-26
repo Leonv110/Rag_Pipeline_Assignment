@@ -1,0 +1,53 @@
+
+================================================================================
+TEST 1: Single Source Retrieval (PostgreSQL)
+Retrieving data from: PostgreSQL_User
+Context Prepared (Length: 190 characters).
+Based on the provided context, I can answer your question:
+
+The role of the user named 'user_1' is "Staff" and their department is "IT".
+
+================================================================================
+TEST 2: Multi-Source Retrieval (PostgreSQL + MongoDB)
+[ROUTING] Identified a MULTI-SOURCE query (PG User + Mongo Project).
+Retrieving data from: PostgreSQL_User
+Retrieving data from: MongoDB_Project
+Context Prepared (Length: 1005 characters).
+Based on the provided context, I can show you the project pipeline details along with the department of the employees who might be part of the team.
+
+Here are the project details:
+
+* PRJ-0001: Project Name 1
+	+ Status: Completed
+	+ Priority: Medium
+	+ Description: Detailed description for Project 1. This project involves complex data migration and ETL pipelines.
+	+ Tasks Count: 11
+	+ Team Size: 3
+	+ Department(s): Sales (no specific employee mentioned)
+* PRJ-0002: Project Name 2
+	+ Status: On Hold
+	+ Priority: Low
+	+ Description: Detailed description for Project 2. This project involves complex data migration and ETL pipelines.
+	+ Tasks Count: 12
+	+ Team Size: 4
+	+ Department(s): Sales (no specific employee mentioned)
+* PRJ-0003: Project Name 3
+	+ Status: Active
+	+ Priority: High
+	+ Description: Detailed description for Project 3. This project involves complex data migration and ETL pipelines.
+	+ Tasks Count: 13
+	+ Team Size: 5
+	+ Department(s): Sales (no specific employee mentioned)
+
+Note that the context does not provide any information about specific employees assigned to these projects, so I've only included the department information for each project.
+
+================================================================================
+TEST 3: REST API Data Retrieval
+Retrieving data from: REST_API_Country
+Context Prepared (Length: 117 characters).
+According to the provided context, the population of Germany is 83,491,249.
+
+================================================================================
+TEST 4: Cache Verification (Query 3 again)
+Cache HIT. Returning cached response.
+According to the provided context, the population of Germany is 83,491,249.
